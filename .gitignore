@@ -1,3 +1,7 @@
+# Project related
+# config - secret keys
+config/default.json
+
 # Logs
 logs
 *.log

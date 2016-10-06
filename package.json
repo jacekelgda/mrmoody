@@ -1,0 +1,31 @@
+{
+  "name": "x-team-slack-mrmoody",
+  "version": "0.0.1",
+  "description": "Slack app that checks mood of X-Teamers",
+  "main": "app.js",
+  "dependencies": {
+    "config": "^1.21.0",
+    "node-slackr": "^0.1.4",
+    "slack-node": "^0.1.8"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/jacekelgda/mrmoody.git"
+  },
+  "keywords": [
+    "slack",
+    "slack-api",
+    "mood",
+    "interactive-message"
+  ],
+  "author": "jacekelgda",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jacekelgda/mrmoody/issues"
+  },
+  "homepage": "https://github.com/jacekelgda/mrmoody#readme"
+}
