@@ -13,3 +13,7 @@ npm install
 # Run
 
 node app.js
+
+# Test
+
+this is just test for editing git from my iPad
