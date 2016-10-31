@@ -4,6 +4,7 @@ var config = require('config');
 slack = new Slack(config.get('incoming_webhook.url'));
 message = {
     "text": "Happy Friday! How was your week?",
+    "channel": "#jacek-ops-journal",
     "attachments": [
         {
             "fallback": "Something went wrong",
