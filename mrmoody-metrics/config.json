@@ -1,0 +1,10 @@
+{
+    "msg": "config data",
+    "target_url" : "<firebase-url-here>",
+    "api_key" : "Bearer <your-user-id>",
+    "update_period_minutes" : 2,
+    "db_address" : "http://0.0.0.0:8086",
+    "db_name": "",
+    "db_user": "",
+    "db_pass": ""
+}
