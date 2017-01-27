@@ -1,0 +1,22 @@
+version: '2'
+services:
+  app:
+    build: app/
+    volumes:
+      - ./:/go/src/github.com/keremgocen/mrmoody-metrics
+    environment:
+      - CGO_ENABLED=0
+      - GOOS=linux
+      - GOARCH=386
+    links:
+     - influx
+  influx:
+    image: "influxdb:1.1"
+    ports:
+     - "8086:8086"
+  grafana:
+    image: "grafana/grafana"
+    ports:
+     - "3000:3000"
+    links:
+     - influx
