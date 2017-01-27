@@ -24,7 +24,7 @@ func main() {
 	err := viper.ReadInConfig()
 	if err != nil {
 		log.Println("No configuration file loaded - using defaults")
-		// TODO defaults
+		// @TODO defaults
 	}
 
 	// read config file
@@ -47,7 +47,7 @@ func main() {
 		log.Println("failed to create database", err.Error())
 	}
 
-	// DEBUG TODO use seconds
+	// DEBUG @TODO use seconds
 	dur := time.Second * time.Duration(period)
 	ticker := time.NewTicker(dur)
 	done := make(chan bool, 1)
@@ -103,18 +103,7 @@ func fetchFirebaseData(URL, key string) ([]byte, error) {
 	}
 	req.Header.Add("Authentication", key)
 
-	// now := time.Now()
-	// nowStr := strconv.FormatInt(unixMilli(now), 10)
-	// log.Println("now:", now, " ts:", nowStr)
-	// lastMonth := now.AddDate(0, -3, 0)
-	// lastMonthStr := "1479495795942" //strconv.FormatInt(unixMilli(lastMonth), 10)
-	// log.Println("last month:", lastMonth, " ts:", lastMonthStr)
-
 	q := req.URL.Query()
-	// q.Add("orderBy", "\"date\"")
-	// q.Add("startAt", lastMonthStr)
-	// q.Add("endAt", nowStr)
-	// q.Add("print", "pretty")
 	req.URL.RawQuery = q.Encode()
 
 	// log outgoing request

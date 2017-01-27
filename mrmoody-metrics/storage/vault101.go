@@ -3,9 +3,7 @@ package storage
 import (
 	"log"
 	"strconv"
-	"strings"
 	"time"
-
 	"github.com/influxdata/influxdb/client/v2"
 )
 
@@ -24,8 +22,6 @@ func Setup(user, pass, addr string) client.Client {
 	// namely INFLUX_USER/INFLUX_PWD. If not just omit Username/Password below.
 	c, err := client.NewHTTPClient(client.HTTPConfig{
 		Addr: addr,
-		// Username: os.Getenv("INFLUX_USER"),
-		// Password: os.Getenv("INFLUX_PWD"),
 	})
 	if err != nil {
 		log.Println("error creating client", err.Error())
@@ -37,8 +33,7 @@ func Setup(user, pass, addr string) client.Client {
 // CreateDB creates a new InfluxDB database with the given name.
 func CreateDB(c client.Client, dbName string) error {
 
-	s := []string{"CREATE DATABASE "}
-	q := client.NewQuery(strings.Join(s, dbName), "", "")
+	q := client.NewQuery("CREATE DATABASE " + dbName, "", "")
 	if response, err := c.Query(q); err == nil && response.Error() == nil {
 		log.Println(response.Results)
 	} else {

@@ -1,20 +1,10 @@
 ### Metrics for Mr.Moody
 
-### Install Go
-https://golang.org/doc/install
+### Build application
 
-### Run the basic app
-
-`go get github.com/keremgocen/mrmoody-metrics`
-
-`mrmoody-metrics`
-
-### Build with Docker Compose
-
-`env GOOS=linux GOARCH=386 go build`
-`CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o mrmoody .`
-
-`docker-compose up`
+```
+docker run -it --rm -v "$PWD":/go/src/github.com/keremgocen/mrmoody-metrics -w /go/src/github.com/keremgocen/mrmoody-metrics -e GOOS=linux -e GOARCH=386 -e CGO_ENABLED=0 golang:1.6 bash -c "go get . && go build ."
+```
 
 ### Requirements
 
@@ -48,8 +38,8 @@ http://docs.grafana.org/datasources/influxdb/#using-influxdb-in-grafana
 Run an InfluxDB docker image, make sure the `db_user` in config is priviliged with necessary read/write access.
 **for demo purposes, usage of explicit user and password is omitted for now**
 
-`docker run -p 8083:8083 -p 8086:8086 
-      -v influxdb:/var/lib/influxdb 
+`docker run -p 8083:8083 -p 8086:8086
+      -v influxdb:/var/lib/influxdb
       influxdb`
 
 ### TODOs
